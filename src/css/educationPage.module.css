@@ -1,0 +1,78 @@
+
+.desc {
+    line-height: 35px;
+}
+
+.header {
+    display: block;
+}
+
+b {
+    font-size: 16.5px;
+}
+
+.eduMain {
+    padding-top: 4%;
+    margin: auto;
+}
+
+
+.container {
+    margin: auto;
+}
+
+.rightTxt {
+    color: #555555;
+}
+
+@media only screen and (min-width: 1200px) {
+    .line {
+        margin-left: 23vw;
+        margin-right: 18vw;
+    }
+
+    .desc {
+        margin-left: 20vw;
+        margin-right: 20vw;
+    }
+
+    .header {
+        margin-left: 24vw;
+    }
+
+    .paraContent {
+        padding-bottom: 1px;
+        margin-left: 15%;
+    }
+
+    .paraName {
+        width: 15%;
+        float: left;
+        padding-top: 7px;
+    }
+
+    .rightTxt {
+        float: right;
+        text-align: right;
+    }
+
+    br {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .rightTxt {
+        float: left;
+        text-align: left;
+    }
+
+    .eduMain {
+        padding-bottom: 5rem;
+        margin: auto;
+    }
+
+    .header {
+        text-decoration: underline;
+    }
+}

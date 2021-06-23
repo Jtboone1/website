@@ -1,0 +1,44 @@
+.desc {
+    line-height: 35px;
+}
+
+h2.desc {
+    margin-top: 50px;
+}
+
+.imageDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    margin-top: 5%;
+    width: 10rem;
+    border-radius: 100%;
+}
+
+
+.title {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.mainLink {
+    color: black;
+}
+
+.mainLink:visited {
+    color: black;
+}
+
+@media only screen and (min-width: 1200px) {
+    .desc {
+        margin-left: 25vw;
+        margin-right: 25vw;
+    }
+
+    h2 {
+        margin-left: 25vw;
+        margin-right: 25vw;
+    }
+}
