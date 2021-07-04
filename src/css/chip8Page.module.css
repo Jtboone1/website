@@ -1,0 +1,16 @@
+main {
+    background-color: black;
+    padding-top: 10%;
+    margin: auto;
+    height: 3000px;
+}
+
+h1 {
+    margin-left: 20vw;
+    color: #00FF00;
+}
+
+p {
+    margin-left: 20vw;
+    color: #00FF00;
+}

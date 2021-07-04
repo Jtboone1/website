@@ -4,6 +4,7 @@ import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
 
 import { Helmet } from 'react-helmet';
+import { Link } from 'gatsby';
 
 const Experience = () => {
     return (
@@ -74,6 +75,21 @@ const Experience = () => {
                                 <li>Possess a good understanding on how to develop and understand solutions, concepts and ideas</li>
                                 <li>First aid certified</li>
                                 <li>Valid driver's license</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <hr className={Edu.line}/>
+                <div className={Edu.container}>
+                    <div className={Edu.paraName}>
+                        <b className={Edu.header}>Projects</b>
+                    </div>
+                    <div className={Edu.paraContent}>
+                        <p className={Edu.desc}>
+                            <ul>
+                                <li><Link to="/Projects/Chip8">Chip8 Emulator using Rust and WASM</Link></li>
+                                <li>Member of the Gander Collegiate coding club, 2015 to 2016</li>
+                                <li>Played house league tennis, 2014 to 2015</li>
                             </ul>
                         </p>
                     </div>
