@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet';
 export default function Index() {
     return (
         <>
-            <Helmet title="Main Page">
+            <Helmet title="Jarrod Boone">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes the idea behind why this website exists."/>
                 <meta name="auther" content="Jarrod Boone" />

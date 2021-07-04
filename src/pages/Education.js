@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 const Education = () => {
     return (
         <>
-            <Helmet title="Education Page">
+            <Helmet title="Education :: Jarrod Boone">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes the background of my education, like highschool, post-seconday and scholarships"/>
                 <meta name="auther" content="Jarrod Boone"/>

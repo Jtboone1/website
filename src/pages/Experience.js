@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 const Experience = () => {
     return (
         <>
-            <Helmet title="Jarrod Boone Experience Page">
+            <Helmet title="Experience :: Jarrod Boone">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes things like work experience, skills and extra-curricular activites"/>
                 <meta name="auther" content="Jarrod Boone"/>
