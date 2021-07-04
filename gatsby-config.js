@@ -11,6 +11,12 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+                component: require.resolve(`./src/components/Layout.js`),
+            },
+        },
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-react-helmet`

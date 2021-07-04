@@ -3,21 +3,19 @@ import * as React from 'react';
 import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
 
-import Nav from '../components/Nav';
 import { Helmet } from 'react-helmet';
 
 const Experience = () => {
     return (
-        <div>
-            <Helmet title="Experience Page">
+        <>
+            <Helmet title="Jarrod Boone Experience Page">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes things like work experience, skills and extra-curricular activites"/>
                 <meta name="auther" content="Jarrod Boone"/>
-                <meta name="keywords" content="Rust, HTML, CSS, Python, C++, JavaScript, React"/>
+                <meta name="keywords" content="Rust, HTML, CSS, Portfolio, Website, JavaScript, Student"/>
                 <meta name="viewport" content="width=device-width"/>
                 <meta name="language" content="en"/>
             </Helmet>
-            <Nav />
             <main className={Edu.eduMain}>
                 <div className={Edu.container}>
                     <div className={Edu.paraName}>
@@ -97,7 +95,7 @@ const Experience = () => {
                 </div>
                 <hr className={Edu.line}/>
             </main>
-        </div>
+        </>
     );
 };
 

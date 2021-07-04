@@ -3,12 +3,11 @@ import * as React from 'react';
 import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
 
-import Nav from '../components/Nav';
 import { Helmet } from 'react-helmet';
 
 const Education = () => {
     return (
-        <div>
+        <>
             <Helmet title="Education Page">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes the background of my education, like highschool, post-seconday and scholarships"/>
@@ -17,7 +16,6 @@ const Education = () => {
                 <meta name="viewport" content="width=device-width"/>
                 <meta name="language" content="en"/>
             </Helmet>
-            <Nav />
             <main className={Edu.eduMain}>
                 <div className={Edu.container}>
                     <div className={Edu.paraName}>
@@ -60,7 +58,7 @@ const Education = () => {
                 </div>
                 <hr className={Edu.line}/>
             </main>
-        </div>
+        </>
     );
 }
 

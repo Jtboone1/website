@@ -5,11 +5,10 @@ import '../css/global.module.css';
 
 import { StaticImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
-import Nav from '../components/Nav';
 
 export default function Index() {
     return (
-        <div>
+        <>
             <Helmet title="Main Page">
                 <meta charSet="utf-8"/>
                 <meta name="description" content="Personal Website for Jarrod Boone. This page just describes the idea behind why this website exists."/>
@@ -18,7 +17,6 @@ export default function Index() {
                 <meta name="viewport" content="width=device-width"/>
                 <meta name="language" content="en"/>
             </Helmet>
-            <Nav />
             <main>
                 <div className={Main.imageDiv}>
                     <StaticImage
@@ -45,6 +43,6 @@ export default function Index() {
                 <br/>
                 <hr/>
             </main>
-        </div>
+        </>
     );
 }
