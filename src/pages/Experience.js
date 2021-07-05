@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
 
+import { FaLink } from 'react-icons/fa'
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 
@@ -85,12 +86,32 @@ const Experience = () => {
                         <b className={Edu.header}>Projects</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
-                            <ul>
-                                <li><Link to="/Projects/Chip8">Chip8 Emulator using Rust and WASM</Link></li>
-                                <li>Member of the Gander Collegiate coding club, 2015 to 2016</li>
-                                <li>Played house league tennis, 2014 to 2015</li>
-                            </ul>
+                        <p className={Edu.descProject}>
+                            <b>Chip8 Emulator</b>
+                            <div>
+                                <div className={Edu.divPro}>
+                                    <a href="https://github.com/Jtboone1/Boone8" className={Edu.link}> 
+                                        <FaLink className={Edu.linkIcon}/>
+                                        https://github.com/Jtboone1/Boone8
+                                    </a>
+                                </div>
+                                Emulator for the Chip8 interpreted programming language from the 1970s. Made with
+                                Rust and compiled to WebAssembly. <Link to="/Projects/Chip8" className={Edu.link}>Hosted here.</Link>
+                            </div>
+                        </p>
+                    </div>
+                    <div className={Edu.paraContent}>
+                        <p className={Edu.descProject}>
+                            <b>Snake Game</b>
+                            <div>
+                                <div className={Edu.divPro}>
+                                    <a href="https://github.com/Jtboone1/Boone8" className={Edu.link}> 
+                                        <FaLink className={Edu.linkIcon}/>
+                                        https://github.com/Jtboone1/Boone8
+                                    </a>
+                                </div>
+                                A Snake game made with Python using the Pygame library.
+                            </div>
                         </p>
                     </div>
                 </div>
