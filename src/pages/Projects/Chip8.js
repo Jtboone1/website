@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { useEffect, useContext, useRef } from 'react';
+
 import { CHIP8 } from 'boone8';
 import { memory } from 'boone8/boone8_bg.wasm';
+import StyleContext from '../../components/Context';
 
 import * as css from '../../css/chip8Page.module.css';
 import '../../css/global.module.css';
@@ -12,6 +15,11 @@ console.log(chipMem[0x050]);
 
 
 const Chip8 = () => {
+    const style = useRef(useContext(StyleContext))
+
+    useEffect(() => {
+        style.current.setStyle(true);
+    }, [])
 
     return (
         <>

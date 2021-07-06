@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useContext, useRef, useEffect } from 'react';
+import StyleContext from '../components/Context';
 
 import * as Main from '../css/mainPage.module.css';
 import '../css/global.module.css';
@@ -7,6 +9,12 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
 
 export default function Index() {
+    const style = useRef(useContext(StyleContext));
+
+    useEffect(() => {
+        style.current.setStyle(false);
+    }, [])
+
     return (
         <>
             <Helmet title="Jarrod Boone">

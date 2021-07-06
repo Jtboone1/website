@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useContext, useRef, useEffect } from 'react';
+import StyleContext from '../components/Context';
 
 import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
@@ -8,6 +10,12 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 
 const Experience = () => {
+    const style = useRef(useContext(StyleContext));
+
+    useEffect(() => {
+        style.current.setStyle(false);
+    }, [])
+
     return (
         <>
             <Helmet title="Experience :: Jarrod Boone">
