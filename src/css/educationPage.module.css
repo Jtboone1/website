@@ -1,6 +1,9 @@
-
 .desc {
     line-height: 35px;
+}
+
+.descProject {
+    line-height: 25px;
 }
 
 .header {
@@ -11,18 +14,35 @@ b {
     font-size: 16.5px;
 }
 
+.divPro {
+    margin-bottom: 10px;
+}
+
 .eduMain {
     padding-top: 4%;
     margin: auto;
 }
 
+.link {
+    color: var(--bg-secondary);
+}
+
+.link:visited {
+    color: var(--bg-secondary);
+}
+
+.linkIcon {
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+}
 
 .container {
     margin: auto;
 }
 
 .rightTxt {
-    color: #555555;
+    color: var(--bg-secondary);
 }
 
 @media only screen and (min-width: 1200px) {
@@ -32,6 +52,11 @@ b {
     }
 
     .desc {
+        margin-left: 17vw;
+        margin-right: 17vw;
+    }
+
+    .descProject {
         margin-left: 17vw;
         margin-right: 17vw;
     }

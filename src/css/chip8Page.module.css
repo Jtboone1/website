@@ -1,0 +1,16 @@
+.cssMain {
+    background-color: black;
+    padding-top: 10%;
+    margin: auto;
+    height: 3000px;
+}
+
+.title {
+    margin-left: 20vw;
+    color: #00FF00;
+}
+
+.desc {
+    margin-left: 20vw;
+    color: #00FF00;
+}
