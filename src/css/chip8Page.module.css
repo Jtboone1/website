@@ -14,3 +14,8 @@
     margin-left: 20vw;
     color: #00FF00;
 }
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
+}

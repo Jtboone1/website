@@ -3,6 +3,7 @@ import { useEffect, useContext, useRef, useState } from 'react';
 
 import StyleContext from '../../components/Context';
 import Canvas from '../../components/Canvas';
+import { handleKeyDown, handleKeyUp } from '../../components/KeyHandler'
 
 import * as css from '../../css/chip8Page.module.css';
 import '../../css/global.module.css';
@@ -47,6 +48,8 @@ const Chip8 = () => {
             cpu_memory[0x200 + i] = romData.getUint8(i);
         }
 
+        window.addEventListener('keyup',(e) => handleKeyUp(e, chip))
+        window.addEventListener('keydown',(e) => handleKeyDown(e, chip))
         setLoading(false);
     }
 
@@ -106,19 +109,29 @@ const Chip8 = () => {
             <main className={css.cssMain}>
                 <h1 className={css.title}>Chip8</h1>
                 <p className={css.desc}>A Chip8 Emulator, written in Rust and compiled to WebAssembly.</p>
-                {loading ? null : 
-                    <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <div style={{borderWidth: 2, borderColor: '#00FF00', borderStyle: 'solid', width: width * 7 - PIXEL_SIZE, height: height * 7 - PIXEL_SIZE}}>
-                            <Canvas draw={draw} />
+                    <div className={css.centerDiv}>
+                        <div style={styles.canvasStyle}>
+                            {loading ? null : 
+                                <Canvas draw={draw} />
+                            }
                         </div>
                     </div>
-                }
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div className={css.centerDiv}>
                     <button onClick={() => loadROM()} style={{backgroundColor: '#00FF00', width: 80, height: 80}}>Load Cartridge</button>
                 </div>
             </main>
         </>
     );
 };
+
+const styles = {
+    canvasStyle: {
+        borderWidth: 2, 
+        borderColor: '#00FF00',
+        borderStyle: 'solid',
+        width: width * 7 - PIXEL_SIZE, 
+        height: height * 7 - PIXEL_SIZE
+    }
+}
 
 export default Chip8;
