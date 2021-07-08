@@ -1,4 +1,4 @@
-exports.onCreateWebpackConfig = ({actions, experiments}) => {
+exports.onCreateWebpackConfig = ({actions}) => {
     actions.setWebpackConfig({
         experiments: {
             syncWebAssembly: true

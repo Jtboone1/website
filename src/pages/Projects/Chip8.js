@@ -22,8 +22,8 @@ const Chip8 = () => {
     const loadWASM = async () => {
 
         // Load WASM from our package.
-        const module = await import("./pkg/boone8.js");
-        const memModule = await import("./pkg/boone8_bg.wasm")
+        const module = await import("boone8/boone8.js");
+        const memModule = await import("boone8/boone8_bg.wasm")
         const memory = memModule.memory;
 
         const chip = module.CHIP8.new();
@@ -38,7 +38,7 @@ const Chip8 = () => {
         const cpu_memory = new Uint8Array(memory.buffer, memPtr, 4096);
 
         // Get ROM from file
-        const rom = await fetch('/roms/Blinky.ch8');
+        const rom = await fetch('/Blinky');
         const arrBuffer = await rom.arrayBuffer();
 
         // Copy ROM memory into Chip8 memory
@@ -97,6 +97,7 @@ const Chip8 = () => {
     }
 
     useEffect(() => {
+        loadWASM();
         style.current.setStyle(true);
     }, [])
 
@@ -105,13 +106,16 @@ const Chip8 = () => {
             <main className={css.cssMain}>
                 <h1 className={css.title}>Chip8</h1>
                 <p className={css.desc}>A Chip8 Emulator, written in Rust and compiled to WebAssembly.</p>
-                {loading ? <p className={css.desc}>HELLO</p> : 
-                    <div style={{marginLeft: '40%', width: 1000, height: 1000}}>
-                        <Canvas draw={draw} />
+                {loading ? null : 
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <div style={{borderWidth: 2, borderColor: '#00FF00', borderStyle: 'solid', width: width * 7 - PIXEL_SIZE, height: height * 7 - PIXEL_SIZE}}>
+                            <Canvas draw={draw} />
+                        </div>
                     </div>
                 }
-                <button onClick={() => loadWASM()} style={{backgroundColor: 'blue', width: 30, height: 30}}>WASM</button>
-                <button onClick={() => loadROM()} style={{backgroundColor: 'green', width: 30, height: 30}}>ROM</button>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <button onClick={() => loadROM()} style={{backgroundColor: '#00FF00', width: 80, height: 80}}>Load Cartridge</button>
+                </div>
             </main>
         </>
     );
