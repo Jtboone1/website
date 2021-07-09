@@ -1,9 +1,11 @@
 import React from 'react';
 import { useEffect, useRef } from 'react';
 
+import { borderStyle } from '../css/chip8Page.module.css';
+
 const Canvas = props => {
 
-    const { draw } = props;
+    const { draw, pixel_size} = props;
     const canvasRef = useRef(null);
   
     useEffect(() => {
@@ -23,7 +25,12 @@ const Canvas = props => {
         }
     }, [draw])
   
-  return <canvas ref={canvasRef} width={64 * 8} height={32 * 8}/>
+  return <canvas 
+            ref={canvasRef} 
+            width={64 * pixel_size}
+            height={32 * pixel_size}
+            className={borderStyle} 
+        />
 }
 
 export default Canvas;

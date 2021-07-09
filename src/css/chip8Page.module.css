@@ -2,38 +2,77 @@
     background-color: black;
     padding-top: 10%;
     margin: auto;
-    height: 3000px;
+    height: 100vh;
     font-family: 'Press Start 2P';
     --retro-primary: #70FF70;
 }
 
 .title {
-    margin-left: 20vw;
+    text-align: center;
     color: var(--retro-primary);
 }
 
 .desc {
-    margin-left: 20vw;
+    margin-bottom: 50px;
     color: var(--retro-primary);
 }
 
 .centerDiv {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 20px 24vw 20px 24vw;
+}
+
+.canvasDiv {
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
 }
 
 .chipButton {
     background-color: #000000;
     color: var(--retro-primary);
-    border-style: center;
     border-radius: 5px;
     border-width: 2px;
     border-color: var(--retro-primary);
-    width: 160px; 
     height: 50px;
-    font-family: 'Press Start 2P';
+    width: 150px;
     text-align: center;
+    font-family: 'Press Start 2P';
+}
+
+.borderStyle {
+    border-width: 2; 
+    border-color: var(--retro-primary);
+    border-style: solid;
+}
+
+.line { 
+    background-color: #70FF70;
+    border: none;
+    height: 1px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .desc {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .desc {
+        margin-left: 20vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .centerDiv {
+        justify-content: space-evenly;
+        margin: 20px 0 20px 0;
+    }
+    .chipButton {
+        height: 30px;
+        width: 120px;
+        font-size: 10px;
+    }
 }

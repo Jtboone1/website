@@ -32,7 +32,7 @@ const Experience = () => {
                         <b className={Edu.header}>Work Experience</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
+                        <div className={Edu.desc}>
 
                             <b>Mysa Thermostats, St John's NL</b><br/>
                             <b className={Edu.rightTxt}>May 2021 - Present</b><br/>
@@ -63,7 +63,7 @@ const Experience = () => {
                                 <li>Worked on migrating the OS of every computer in the university to Windows 10</li>
                                 <li>Helped various faculty members in computer hardware installations</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>
@@ -72,7 +72,7 @@ const Experience = () => {
                         <b className={Edu.header}>Skills</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
+                        <div className={Edu.desc}>
                             <ul>
                                 <li>
                                     Computer skills include, JavaScript, React, Rust, Git, C++, HTML, CSS, 
@@ -85,7 +85,7 @@ const Experience = () => {
                                 <li>First aid certified</li>
                                 <li>Valid driver's license</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>
@@ -94,33 +94,29 @@ const Experience = () => {
                         <b className={Edu.header}>Projects</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.descProject}>
+                        <div className={Edu.descProject}>
                             <b>Chip8 Emulator</b>
-                            <div>
-                                <div className={Edu.divPro}>
-                                    <a href="https://github.com/Jtboone1/Boone8" className={Edu.link}> 
-                                        <FaLink className={Edu.linkIcon}/>
-                                        https://github.com/Jtboone1/Boone8
-                                    </a>
-                                </div>
-                                Emulator for the Chip8 interpreted programming language from the 1970s. Made with
-                                Rust and compiled to WebAssembly. <Link to="/Projects/Chip8" className={Edu.link}>Hosted here.</Link>
+                            <div className={Edu.divPro}>
+                                <a href="https://github.com/Jtboone1/Boone8" className={Edu.link}> 
+                                    <FaLink className={Edu.linkIcon}/>
+                                    https://github.com/Jtboone1/Boone8
+                                </a>
                             </div>
-                        </p>
+                            Emulator for the Chip8 interpreted programming language from the 1970s. Made with
+                            Rust and compiled to WebAssembly. <Link to="/Projects/Chip8" className={Edu.link}>Hosted here.</Link>
+                        </div>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.descProject}>
+                        <div className={Edu.descProjectLast}>
                             <b>This Website</b>
-                            <div>
-                                <div className={Edu.divPro}>
-                                    <a href="https://github.com/Jtboone1/website" className={Edu.link}> 
-                                        <FaLink className={Edu.linkIcon}/>
-                                        https://github.com/Jtboone1/website
-                                    </a>
-                                </div>
-                                A simple static website made using <a href="https://www.gatsbyjs.com/" className={Edu.link}>GatsbyJS</a>.
+                            <div className={Edu.divPro}>
+                                <a href="https://github.com/Jtboone1/website" className={Edu.link}> 
+                                    <FaLink className={Edu.linkIcon}/>
+                                    https://github.com/Jtboone1/website
+                                </a>
                             </div>
-                        </p>
+                            A simple static website made using <a href="https://www.gatsbyjs.com/" className={Edu.link}>GatsbyJS</a>.
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>
@@ -129,13 +125,13 @@ const Experience = () => {
                         <b className={Edu.header}>Extra-Curricular Activities</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
+                        <div className={Edu.desc}>
                             <ul>
                                 <li>Volunteered with the Gander food bank, 2014 to 2015</li>
                                 <li>Member of the Gander Collegiate coding club, 2015 to 2016</li>
                                 <li>Played house league tennis, 2014 to 2015</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>

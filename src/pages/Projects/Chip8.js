@@ -4,23 +4,28 @@ import { useEffect, useContext, useRef, useState } from 'react';
 import StyleContext from '../../components/Context';
 import Canvas from '../../components/Canvas';
 import { handleKeyDown, handleKeyUp } from '../../components/KeyHandler'
+import { useMediaQuery } from 'react-responsive';
 
 import * as css from '../../css/chip8Page.module.css';
-import '../../css/global.module.css';
 
 const SET_COLOR = '#70FF70';
 const UNSET_COLOR = '#000000';
-const PIXEL_SIZE = 8;
-const width = 64;
-const height = 32;
+const WIDTH = 64;
+const HEIGHT = 32;
+const LARGE_PIXEL_SIZE = 8;
+const MEDIUM_PIXEL_SIZE = 6;
+const SMALL_PIXEL_SIZE = 4;
 
 const Chip8 = () => {
     const style = useRef(useContext(StyleContext))
     const [chip, setChip] = useState(null);
     const [memory, setMem] = useState(null);
-    const [romStr, setROM] = useState("");
-    const [speed, setSpeed] = useState(1);
+    const [selectedROM, setSelectedROM] = useState("");
+    const [loadedROM, setLoadedROM] = useState(".");
+    const [speed, setSpeed] = useState(0);
     const [loading, setLoading] = useState(true);
+    const large_screen = useMediaQuery({ query : '(min-width: 1200px)' });
+    const medium_screen = useMediaQuery({ query : '(min-width: 500px)' });
 
     const loadWASM = async () => {
 
@@ -43,13 +48,14 @@ const Chip8 = () => {
 
     const loadROM = async () => {
 
-        if (romStr !== "" && chip) {
+        if (chip) {
+
             // Get Chip8 Memory
             const memPtr = chip.get_memory();
             const cpu_memory = new Uint8Array(memory.buffer, memPtr, 4096);
 
             // Get ROM from file
-            const rom = await fetch(`/roms/${romStr}`);
+            const rom = await fetch(`/roms/${selectedROM}`);
             const arrBuffer = await rom.arrayBuffer();
 
             // Copy ROM memory into Chip8 memory
@@ -60,6 +66,7 @@ const Chip8 = () => {
 
             window.addEventListener('keyup',(e) => handleKeyUp(e, chip))
             window.addEventListener('keydown',(e) => handleKeyDown(e, chip))
+            setLoadedROM(selectedROM);
             setLoading(false);
         }
     }
@@ -67,40 +74,42 @@ const Chip8 = () => {
     const getIndex = (row, column) => row * 64 + column;
 
     const draw = (ctx) => {
+
+        const pixel_size = get_pixel_size();
         const videoPtr = chip.get_video();
-        const pixels = new Uint8Array(memory.buffer, videoPtr, width * height);
+        const pixels = new Uint8Array(memory.buffer, videoPtr, WIDTH * HEIGHT);
 
         ctx.beginPath();
         ctx.fillStyle = SET_COLOR;
-        for (let row = 0; row < height; row++) {
-            for (let col = 0; col < width; col++) {
+        for (let row = 0; row < HEIGHT; row++) {
+            for (let col = 0; col < WIDTH; col++) {
                 const idx = getIndex(row, col);
                 if (pixels[idx] === 0) {
                     continue;
                 };
 
                 ctx.fillRect(
-                    col * PIXEL_SIZE + 1,
-                    row * PIXEL_SIZE + 1,
-                    PIXEL_SIZE,
-                    PIXEL_SIZE
+                    col * pixel_size,
+                    row * pixel_size,
+                    pixel_size,
+                    pixel_size
                 );
             };
         };
 
         ctx.fillStyle = UNSET_COLOR;
-        for (let row = 0; row < height; row++) {
-            for (let col = 0; col < width; col++) {
+        for (let row = 0; row < HEIGHT; row++) {
+            for (let col = 0; col < WIDTH; col++) {
                 const idx = getIndex(row, col);
                 if (pixels[idx] !== 0) {
                     continue;
                 }
 
                 ctx.fillRect(
-                    col * PIXEL_SIZE + 1,
-                    row * PIXEL_SIZE + 1,
-                    PIXEL_SIZE,
-                    PIXEL_SIZE
+                    col * pixel_size,
+                    row * pixel_size,
+                    pixel_size,
+                    pixel_size
                 );
             };
         };
@@ -110,11 +119,25 @@ const Chip8 = () => {
         };
     };
 
+    const draw_nothing = (ctx) => {
+        const pixel_size = get_pixel_size();
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, WIDTH * pixel_size, HEIGHT * pixel_size);
+    }
+
     const resetLoad = () => {
-        setLoading(true);
-        chip.reset();
-        loadROM();
+        if (loadedROM !== selectedROM && selectedROM !== "") {
+            setLoading(true);
+            chip.reset();
+            loadROM();
+        }
     };
+
+    const get_pixel_size = () => {
+        if (large_screen) return LARGE_PIXEL_SIZE;
+        else if (medium_screen) return MEDIUM_PIXEL_SIZE;
+        else return SMALL_PIXEL_SIZE;
+    }
 
     useEffect(() => {
         loadWASM();
@@ -124,59 +147,63 @@ const Chip8 = () => {
     return (
         <>
             <main className={css.cssMain}>
-                <h1 className={css.title}>Boone-8</h1>
-                <p className={css.desc}>
-                    A Chip8 Emulator, written in Rust and compiled to WebAssembly.
-                </p>
-                <div className={css.centerDiv}>
-                    <select 
-                        className={css.chipButton} 
-                        value={romStr}
-                        onChange={(e) => setROM(e.target.value)}
-                    >
-                        <option value="">Load ROM</option>
-                        <option value="Blinky.ch8">Blinky</option>
-                        <option value="Cave.ch8">Cave</option>
-                        <option value="Space.ch8">Space</option>
-                        <option value="Tank.ch8">Tank</option>
-                        <option value="Tetris.ch8">Tetris</option>
-                    </select>
-                    <select 
-                        className={css.chipButton} 
-                        value={speed}
-                        onChange={(e) => setSpeed(e.target.value)}
-                    >
-                        <option value={0}>Speed</option>
-                        <option value={0}>x0</option>
-                        <option value={1}>x1</option>
-                        <option value={2}>x2</option>
-                        <option value={4}>x4</option>
-                        <option value={8}>x8</option>
-                        <option value={10}>x10</option>
-                    </select>
-                    <button onClick={() => resetLoad()} className={css.chipButton}>Start</button>
-                </div>
-                <div className={css.centerDiv}>
-                    <div style={styles.borderStyle}>
-                        {loading ? 
-                            null : 
-                            <Canvas draw={draw} />
-                        }
+                <div className={css.overflowDiv}>
+                    <h1 className={css.title}>Boone-8</h1>
+                    <p className={css.desc}>
+                        A Chip8 Emulator written in Rust and compiled to WebAssembly.
+                    </p>
+                    <div className={css.centerDiv}>
+                        <select 
+                            className={css.chipButton} 
+                            value={selectedROM}
+                            onChange={(e) => setSelectedROM(e.target.value)}
+                        >
+                            <option value="">Load ROM</option>
+                            <option value="Blinky.ch8">Blinky</option>
+                            <option value="Cave.ch8">Cave</option>
+                            <option value="Space.ch8">Space</option>
+                            <option value="Tank.ch8">Tank</option>
+                            <option value="Tetris.ch8">Tetris</option>
+                            <option value="Pong.ch8">Pong</option>
+                        </select>
+                        <select 
+                            className={css.chipButton} 
+                            value={speed}
+                            onChange={(e) => setSpeed(e.target.value)}
+                        >
+                            <option value={0}>Speed</option>
+                            <option value={0}>x0</option>
+                            <option value={1}>x1</option>
+                            <option value={2}>x2</option>
+                            <option value={4}>x4</option>
+                            <option value={8}>x8</option>
+                            <option value={10}>x10</option>
+                        </select>
                     </div>
+                    <div className={css.canvasDiv}>
+                        <Canvas 
+                            draw={loading ? 
+                                draw_nothing : 
+                                draw
+                            } 
+                            pixel_size={get_pixel_size()} 
+                        /> :
+                    </div>
+                    <div className={css.centerDiv}>
+                        <button 
+                            onClick={() => resetLoad()} 
+                            className={css.chipButton}
+                        >
+                            Start
+                        </button>
+                    </div>
+                    <br/>
+                    <hr className={css.line} />
                 </div>
+
             </main>
         </>
     );
-};
-
-const styles = {
-    borderStyle: {
-        borderWidth: 2, 
-        borderColor: '#70FF70',
-        borderStyle: 'solid',
-        width: width * 8 + 1, 
-        height: height * 8 + 1
-    }
 };
 
 export default Chip8;
