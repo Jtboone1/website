@@ -27,6 +27,10 @@ main {
     padding: 1rem;
 }
 
+select:focus {
+    outline: none;
+}
+
 @media only screen and (min-width: 1200px) {
     main {
         margin-left: 5rem;

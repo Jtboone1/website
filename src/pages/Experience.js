@@ -110,15 +110,15 @@ const Experience = () => {
                     </div>
                     <div className={Edu.paraContent}>
                         <p className={Edu.descProject}>
-                            <b>Snake Game</b>
+                            <b>This Website</b>
                             <div>
                                 <div className={Edu.divPro}>
-                                    <a href="https://github.com/Jtboone1/Boone8" className={Edu.link}> 
+                                    <a href="https://github.com/Jtboone1/website" className={Edu.link}> 
                                         <FaLink className={Edu.linkIcon}/>
-                                        https://github.com/Jtboone1/Boone8
+                                        https://github.com/Jtboone1/website
                                     </a>
                                 </div>
-                                A Snake game made with Python using the Pygame library.
+                                A simple static website made using <a href="https://www.gatsbyjs.com/" className={Edu.link}>GatsbyJS</a>.
                             </div>
                         </p>
                     </div>

@@ -7,7 +7,7 @@ module.exports = {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 google: {
-                    families: ['Roboto'],
+                    families: ['Roboto', 'Press Start 2P'],
                 },
             },
         },
