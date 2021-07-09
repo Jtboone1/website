@@ -24,9 +24,16 @@ const Chip8 = () => {
 
     const loadWASM = async () => {
 
-        // Load WASM from our package.
-        const module = await import("boone8/boone8.js");
-        const memModule = await import("boone8/boone8_bg.wasm")
+        // Load WASM from our package
+       
+        // The reason for this useless concatenation
+        // is to get rid of a really specific issue
+        // with Webpack and WASM modules being imported
+        // all in one line.
+
+        /*eslint no-useless-concat: "off"*/
+        const module = await import("boone8/" + "boone8.js");
+        const memModule = await import("boone8/" + "boone8_bg.wasm");
         const memory = memModule.memory;
 
         const chip = module.CHIP8.new();
