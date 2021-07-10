@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useContext, useRef, useEffect } from 'react';
+import StyleContext from '../components/Context';
 
 import * as Edu from '../css/educationPage.module.css';
 import '../css/global.module.css';
@@ -6,6 +8,12 @@ import '../css/global.module.css';
 import { Helmet } from 'react-helmet';
 
 const Education = () => {
+    const style = useRef(useContext(StyleContext));
+
+    useEffect(() => {
+        style.current.setStyle(false);
+    }, [])
+
     return (
         <>
             <Helmet title="Education :: Jarrod Boone">
@@ -22,8 +30,7 @@ const Education = () => {
                         <b className={Edu.header}>Education</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
-
+                        <div className={Edu.desc}>
                             <b>Memorial University of Newfoundland (MUN), St. John’s NL</b><br/>
                             <b className={Edu.rightTxt}>2017 - Present</b><br/>
                             <ul>
@@ -38,7 +45,7 @@ const Education = () => {
                                 <li>Graduated with French Immersion Credentials</li>
                                 <li>Graduated with Honors</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>
@@ -47,13 +54,13 @@ const Education = () => {
                         <b className={Edu.header}>Scholarships and Awards</b>
                     </div>
                     <div className={Edu.paraContent}>
-                        <p className={Edu.desc}>
+                        <div className={Edu.desc}>
                             <ul>
                                 <li>Honor Roll student in High School, 2014 – 2017</li>
                                 <li>Recipient of the Concorde Award for having an average above 90% in High School, 2014 – 2017</li>
                                 <li>Recipient of the MUN Entrance Scholarship, 2016 – 2017</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <hr className={Edu.line}/>

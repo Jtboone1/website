@@ -1,5 +1,6 @@
 :root {
     --bg-primary: #23232e;
+    --bg-secondary: #555555;
     font-family: 'Roboto';
 }
 
@@ -24,6 +25,10 @@ body::-webkit-scrollbar-thumb {
 
 main {
     padding: 1rem;
+}
+
+select:focus {
+    outline: none;
 }
 
 @media only screen and (min-width: 1200px) {
