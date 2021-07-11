@@ -91,6 +91,10 @@
         margin-left: 22vw;
         margin-right: 22vw;
     }
+    
+    .cssMain {
+        margin-left: 5rem;
+    }
 }
 
 @media only screen and (max-width: 1200px) {

@@ -118,13 +118,13 @@
     .navStyle {
         bottom: 0;
         width: 100vw;
-        height: 5rem;
+        height: 3rem;
     }
 
     .navStyleRetro {
         bottom: 0;
         width: 100vw;
-        height: 5rem;
+        height: 3rem;
     }
 
     .navbarNav {
@@ -137,10 +137,12 @@
     }
 
     .navLink {
+        height: 3rem;
         justify-content: center;
     }
 
     .navLinkRetro {
+        height: 3rem;
         justify-content: center;
     }
 }
