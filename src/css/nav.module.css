@@ -1,10 +1,10 @@
 :root {
     --bg-primary: #23232e;
-    --bg-primary-retro: #70FF70;
+    --bg-primary-retro: #70ff70;
     --bg-secondary: #141418;
     --text-primary: #b6b6b6;
     --text-retro: #000000;
-    --font-family: 'Roboto';
+    --font-family: "Roboto";
 }
 
 .navStyle {
@@ -112,7 +112,6 @@
     .navLinkRetro svg {
         margin-left: 1.5rem;
     }
-
 }
 
 @media only screen and (max-width: 1200px) {

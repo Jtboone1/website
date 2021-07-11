@@ -1,7 +1,7 @@
-exports.onCreateWebpackConfig = ({actions}) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         experiments: {
-            syncWebAssembly: true
-        }
-    })
-}
+            syncWebAssembly: true,
+        },
+    });
+};

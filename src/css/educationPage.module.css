@@ -37,6 +37,7 @@ b {
 }
 
 .linkIcon {
+    color: #555555;
     margin-right: 5px;
     width: 12px;
     height: 12px;
@@ -47,7 +48,7 @@ b {
 }
 
 .rightTxt {
-    color: var(--bg-secondary);
+    color: #555555;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -65,7 +66,7 @@ b {
         margin-left: 17vw;
         margin-right: 17vw;
     }
-    
+
     .descProjectLast {
         margin-left: 17vw;
         margin-right: 17vw;

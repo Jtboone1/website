@@ -1,10 +1,10 @@
 .cssMain {
     background-color: black;
-    padding-top: 10%;
+    padding-top: 5%;
     margin: auto;
-    height: 130vh;
-    font-family: 'Press Start 2P';
-    --retro-primary: #70FF70;
+    height: 110vh;
+    font-family: "Press Start 2P";
+    --retro-primary: #70ff70;
 }
 
 .title {
@@ -16,6 +16,23 @@
     margin-bottom: 50px;
     color: var(--retro-primary);
     text-align: center;
+}
+
+.pText {
+    color: var(--retro-primary);
+    text-align: left;
+    font-family: "Roboto";
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.pTitle {
+    color: var(--retro-primary);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: "Roboto";
+    font-size: 22px;
 }
 
 .instructionLine {
@@ -55,11 +72,11 @@
     height: 50px;
     width: 150px;
     text-align: center;
-    font-family: 'Press Start 2P';
+    font-family: "Press Start 2P";
 }
 
-.line { 
-    background-color: #70FF70;
+.line {
+    background-color: var(--retro-primary);
     border: none;
     height: 1px;
 }
@@ -67,6 +84,11 @@
 @media only screen and (min-width: 1200px) {
     .centerDiv {
         margin: 20px 31vw 20px 31vw;
+    }
+
+    .pText {
+        margin-left: 22vw;
+        margin-right: 22vw;
     }
 }
 

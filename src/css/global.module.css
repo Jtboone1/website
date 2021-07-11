@@ -1,7 +1,7 @@
 :root {
     --bg-primary: #23232e;
     --bg-secondary: #555555;
-    font-family: 'Roboto';
+    font-family: "Roboto";
 }
 
 body {
@@ -46,4 +46,4 @@ select:focus {
     main {
         margin-bottom: 5rem;
     }
-} 
+}
