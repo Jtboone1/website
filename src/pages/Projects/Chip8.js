@@ -71,52 +71,53 @@ const Chip8 = () => {
     const getIndex = (row, column) => row * 64 + column;
 
     const draw = (ctx) => {
+
+        const pixel_size = get_pixel_size();
+        const videoPtr = chip.get_video();
+        const pixels = new Uint8Array(
+            memory.buffer,
+            videoPtr,
+            WIDTH * HEIGHT
+        );
+
+        ctx.beginPath();
+        ctx.fillStyle = SET_COLOR;
+        for (let row = 0; row < HEIGHT; row++) {
+            for (let col = 0; col < WIDTH; col++) {
+                const idx = getIndex(row, col);
+                if (pixels[idx] === 0) {
+                    continue;
+                }
+
+                ctx.fillRect(
+                    col * pixel_size,
+                    row * pixel_size,
+                    pixel_size,
+                    pixel_size
+                );
+            }
+        }
+
+        ctx.fillStyle = UNSET_COLOR;
+        for (let row = 0; row < HEIGHT; row++) {
+            for (let col = 0; col < WIDTH; col++) {
+                const idx = getIndex(row, col);
+                if (pixels[idx] !== 0) {
+                    continue;
+                }
+
+                ctx.fillRect(
+                    col * pixel_size,
+                    row * pixel_size,
+                    pixel_size,
+                    pixel_size
+                );
+            }
+        }
+        ctx.stroke();
+
+        // Cycles through opcodes by calling the tick method
         if (!isPaused || clicked) {
-
-            const pixel_size = get_pixel_size();
-            const videoPtr = chip.get_video();
-            const pixels = new Uint8Array(
-                memory.buffer,
-                videoPtr,
-                WIDTH * HEIGHT
-            );
-
-            ctx.beginPath();
-            ctx.fillStyle = SET_COLOR;
-            for (let row = 0; row < HEIGHT; row++) {
-                for (let col = 0; col < WIDTH; col++) {
-                    const idx = getIndex(row, col);
-                    if (pixels[idx] === 0) {
-                        continue;
-                    }
-
-                    ctx.fillRect(
-                        col * pixel_size,
-                        row * pixel_size,
-                        pixel_size,
-                        pixel_size
-                    );
-                }
-            }
-
-            ctx.fillStyle = UNSET_COLOR;
-            for (let row = 0; row < HEIGHT; row++) {
-                for (let col = 0; col < WIDTH; col++) {
-                    const idx = getIndex(row, col);
-                    if (pixels[idx] !== 0) {
-                        continue;
-                    }
-
-                    ctx.fillRect(
-                        col * pixel_size,
-                        row * pixel_size,
-                        pixel_size,
-                        pixel_size
-                    );
-                }
-            }
-            ctx.stroke();
-
             for (let i = 0; i < speed; i++) {
                 chip.tick();
             }
