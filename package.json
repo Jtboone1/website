@@ -16,7 +16,7 @@
         "deploy": "gatsby build --prefix-paths && gh-pages -d public"
     },
     "dependencies": {
-        "boone8": "^0.1.5",
+        "boone8": "^0.2.0",
         "gatsby": "^3.6.2",
         "gatsby-plugin-image": "^1.8.0",
         "gatsby-plugin-layout": "^2.8.0",

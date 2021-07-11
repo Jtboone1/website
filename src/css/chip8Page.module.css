@@ -2,7 +2,8 @@
     background-color: black;
     padding-top: 5%;
     margin: auto;
-    height: 110vh;
+    height: 130%;
+    padding-bottom: 30%;
     font-family: "Press Start 2P";
     --retro-primary: #70ff70;
 }
