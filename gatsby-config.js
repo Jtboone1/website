@@ -1,13 +1,13 @@
 module.exports = {
     siteMetadata: {
-        title: 'Portfolio',
+        title: "Portfolio",
     },
     plugins: [
         {
-            resolve: 'gatsby-plugin-web-font-loader',
+            resolve: "gatsby-plugin-web-font-loader",
             options: {
                 google: {
-                    families: ['Roboto'],
+                    families: ["Roboto", "Press Start 2P"],
                 },
             },
         },
@@ -19,6 +19,6 @@ module.exports = {
         },
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
-        `gatsby-plugin-react-helmet`
+        `gatsby-plugin-react-helmet`,
     ],
 };

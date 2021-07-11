@@ -1,11 +1,12 @@
 import React from "react";
-import Nav from './Nav';
+import { ThemeProvider } from "./Context";
+import Nav from "./Nav";
 
 export default function Layout({ children }) {
-  return (
-        <>
-            <Nav/>
+    return (
+        <ThemeProvider>
+            <Nav />
             {children}
-        </>
-    )
+        </ThemeProvider>
+    );
 }

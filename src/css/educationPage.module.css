@@ -1,6 +1,14 @@
-
 .desc {
     line-height: 35px;
+}
+
+.descProject {
+    line-height: 25px;
+    margin-bottom: 25px;
+}
+
+.descProjectLast {
+    line-height: 25px;
 }
 
 .header {
@@ -11,11 +19,29 @@ b {
     font-size: 16.5px;
 }
 
+.divPro {
+    margin-bottom: 10px;
+}
+
 .eduMain {
     padding-top: 4%;
     margin: auto;
 }
 
+.link {
+    color: var(--bg-secondary);
+}
+
+.link:visited {
+    color: var(--bg-secondary);
+}
+
+.linkIcon {
+    color: #555555;
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+}
 
 .container {
     margin: auto;
@@ -32,6 +58,16 @@ b {
     }
 
     .desc {
+        margin-left: 17vw;
+        margin-right: 17vw;
+    }
+
+    .descProject {
+        margin-left: 17vw;
+        margin-right: 17vw;
+    }
+
+    .descProjectLast {
         margin-left: 17vw;
         margin-right: 17vw;
     }
