@@ -23,6 +23,7 @@ const Chip8 = () => {
     const [speed, setSpeed] = useState(0);
     const [loading, setLoading] = useState(true);
     const [isPaused, setPaused] = useState(true);
+    const [clicked, setClicked] = useState(false);
 
     const large_screen = useMediaQuery({ query: "(min-width: 1200px)" });
     const medium_screen = useMediaQuery({ query: "(min-width: 500px)" });
@@ -70,7 +71,8 @@ const Chip8 = () => {
     const getIndex = (row, column) => row * 64 + column;
 
     const draw = (ctx) => {
-        if (!isPaused) {
+        if (!isPaused || clicked) {
+
             const pixel_size = get_pixel_size();
             const videoPtr = chip.get_video();
             const pixels = new Uint8Array(
@@ -114,6 +116,7 @@ const Chip8 = () => {
                 }
             }
             ctx.stroke();
+
             for (let i = 0; i < speed; i++) {
                 chip.tick();
             }
@@ -158,12 +161,16 @@ const Chip8 = () => {
                     >
                         <option value="">Load ROM</option>
                         <option value="Blinky.ch8">Blinky</option>
+                        <option value="Bowling.ch8">Bowling</option>
                         <option value="Cave.ch8">Cave</option>
+                        <option value="Connect4.ch8">Connect4</option>
+                        <option value="Pong.ch8">Pong</option>
                         <option value="Space.ch8">Space</option>
+                        <option value="Submarine.ch8">Submarine</option>
                         <option value="Tank.ch8">Tank</option>
                         <option value="Tetris.ch8">Tetris</option>
-                        <option value="Pong.ch8">Pong</option>
-                        <option value="Astro.ch8">Astro</option>
+                        <option value="WipeOff.ch8">WipeOff</option>
+                        <option value="Worm.ch8">Worm</option>
                     </select>
                     <select
                         className={css.chipButton}
@@ -182,6 +189,7 @@ const Chip8 = () => {
                 <div className={css.canvasDiv}>
                     <Canvas
                         draw={loading ? draw_nothing : draw}
+                        setClick={setClicked}
                         pixel_size={get_pixel_size()}
                     />{" "}
                     :
@@ -192,6 +200,14 @@ const Chip8 = () => {
                         className={css.chipButton}
                     >
                         {isPaused ? "Start" : "Stop"}
+                    </button>
+                    <button
+                        className={css.chipButton}
+                        onClick={() => {
+                            setClicked(true);
+                        }}
+                    >
+                        Step
                     </button>
                 </div>
                 <br />
