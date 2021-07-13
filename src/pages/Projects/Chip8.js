@@ -3,7 +3,9 @@ import { useEffect, useContext, useRef, useState } from "react";
 
 import StyleContext from "../../components/Context";
 import Canvas from "../../components/Canvas";
+import ChipDiv from "../../components/ChipDiv";
 import { handleKeyDown, handleKeyUp } from "../../components/KeyHandler";
+import { extract_opcode_name } from "../../components/OpcodeExtractor";
 import { useMediaQuery } from "react-responsive";
 
 import * as css from "../../css/chip8Page.module.css";
@@ -87,7 +89,7 @@ const Chip8 = () => {
                 const idx = getIndex(row, col);
                 if (pixels[idx] === 0) {
                     continue;
-                }
+                };
 
                 ctx.fillRect(
                     col * pixel_size,
@@ -95,8 +97,8 @@ const Chip8 = () => {
                     pixel_size,
                     pixel_size
                 );
-            }
-        }
+            };
+        };
 
         ctx.fillStyle = UNSET_COLOR;
         for (let row = 0; row < HEIGHT; row++) {
@@ -112,16 +114,16 @@ const Chip8 = () => {
                     pixel_size,
                     pixel_size
                 );
-            }
+            };
         }
         ctx.stroke();
 
         // Cycles through opcodes by calling the tick method
-        if (!isPaused || clicked) {
+        if (!isPaused || (isPaused && clicked)) {
             for (let i = 0; i < speed; i++) {
                 chip.tick();
-            }
-        }
+            };
+        };
     };
 
     const draw_nothing = (ctx) => {
@@ -142,10 +144,26 @@ const Chip8 = () => {
         else return SMALL_PIXEL_SIZE;
     };
 
+    const get_chip_values = () => {
+        if (chip && memory) {
+            return {
+                pc: chip.get_pc(),
+                index: chip.get_index(),
+                st: chip.get_sound_timer(),
+                dt: chip.get_delay_timer(),
+                registers: new Uint8Array(memory.buffer, chip.get_registers(), 16)
+            }
+        }
+    }
+
     useEffect(() => {
         loadWASM();
         style.current.setStyle(true);
     }, []);
+
+    useEffect(() => {
+        setClicked(false);
+    }, [clicked])
 
     return (
         <>
@@ -186,16 +204,6 @@ const Chip8 = () => {
                         <option value={8}>x8</option>
                         <option value={10}>x10</option>
                     </select>
-                </div>
-                <div className={css.canvasDiv}>
-                    <Canvas
-                        draw={loading ? draw_nothing : draw}
-                        setClick={setClicked}
-                        pixel_size={get_pixel_size()}
-                    />{" "}
-                    :
-                </div>
-                <div className={css.centerDiv}>
                     <button
                         onClick={() => setPaused(!isPaused)}
                         className={css.chipButton}
@@ -204,12 +212,22 @@ const Chip8 = () => {
                     </button>
                     <button
                         className={css.chipButton}
-                        onClick={() => {
-                            setClicked(true);
-                        }}
+                        onClick={() => setClicked(true)}
                     >
                         Step
                     </button>
+                </div>
+                <div className={css.canvasDiv}>
+                    <Canvas
+                        draw={loading ? draw_nothing : draw}
+                        pixel_size={get_pixel_size()}
+                        width={get_pixel_size() * 64}
+                        height={get_pixel_size() * 32} 
+                        borderStyle={css.canvasBorder}
+                    />{" "}
+                </div>
+                <div className={css.centerDiv}>
+                    <ChipDiv get_value={get_chip_values}/>
                 </div>
                 <br />
                 <p className={css.instructionTitle}>

@@ -1,20 +1,18 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 
-import * as css from "../css/chip8Page.module.css";
-
 const Canvas = (props) => {
-    const { draw, pixel_size, setClick } = props;
+    const { draw, height, width, borderStyle } = props;
     const canvasRef = useRef(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
+
         let animationFrameId;
 
         const render = () => {
             draw(context);
-            setClick(false);
             animationFrameId = window.requestAnimationFrame(render);
         };
         render();
@@ -22,14 +20,14 @@ const Canvas = (props) => {
         return () => {
             window.cancelAnimationFrame(animationFrameId);
         };
-    }, [draw, setClick]);
+    }, [draw]);
 
     return (
         <canvas
             ref={canvasRef}
-            width={64 * pixel_size}
-            height={32 * pixel_size}
-            className={css.canvasBorder}
+            className={borderStyle}
+            width={width}
+            height={height}
         />
     );
 };
