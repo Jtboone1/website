@@ -151,7 +151,9 @@ const Chip8 = () => {
                 index: chip.get_index(),
                 st: chip.get_sound_timer(),
                 dt: chip.get_delay_timer(),
-                registers: new Uint8Array(memory.buffer, chip.get_registers(), 16)
+                si: chip.get_stack_index(),
+                registers: new Uint8Array(memory.buffer, chip.get_registers(), 16),
+                opcode: extract_opcode_name(chip.get_opcode())
             }
         }
     }

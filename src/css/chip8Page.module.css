@@ -36,6 +36,17 @@
     font-size: 22px;
 }
 
+.textBox {
+    display: grid;
+    row-gap: 15px;
+    margin-bottom: 50px;
+}
+
+.boxText {
+    color: var(--retro-primary);
+    white-space: nowrap;    
+}
+
 .instructionLine {
     color: var(--retro-primary);
     text-align: center;
@@ -101,6 +112,14 @@
     .cssMain {
         margin-left: 5rem;
     }
+
+    .textBox {
+        grid-template-columns: 125px 170px 80px 170px;
+    }
+
+    .boxText {
+        margin-left: 40%;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -121,6 +140,15 @@
         margin-right: 4px;
         font-size: 10px;
     }
+
+    .textBox {
+        margin-left: 10%;
+        grid-template-columns: 100px 140px 60px 140px;
+    }
+
+    .boxText {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -136,5 +164,14 @@
 
     .instructionTitle {
         display: none;
+    }
+
+    .boxText {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    .textBox {
+        grid-template-columns: 90px 100px 50px 100px;
     }
 }
