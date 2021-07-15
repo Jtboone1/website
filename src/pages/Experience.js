@@ -17,7 +17,7 @@ const Experience = () => {
 
     return (
         <>
-            <Helmet title="Experience :: Jarrod Boone">
+            <Helmet title="Jarrod Boone::Experience">
                 <meta charSet="utf-8" />
                 <meta
                     name="description"

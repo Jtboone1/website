@@ -15,7 +15,7 @@ const Education = () => {
 
     return (
         <>
-            <Helmet title="Education :: Jarrod Boone">
+            <Helmet title="Jarrod Boone::Education">
                 <meta charSet="utf-8" />
                 <meta
                     name="description"

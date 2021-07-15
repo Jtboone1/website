@@ -1,11 +1,9 @@
-
 import React from "react";
 import { useEffect, useRef } from "react";
 
 import * as css from "../css/chip8Page.module.css";
 
 const ChipDiv = (props) => {
-
     const pcRef = useRef(null);
     const indexRef = useRef(null);
     const opRef = useRef(null);
@@ -31,24 +29,23 @@ const ChipDiv = (props) => {
     const vF = useRef(null);
 
     const RegisterLine = (regNum, ref, blank = true) => {
-        return(
+        return (
             <>
-                {blank &&
+                {blank && (
                     <>
-                        <span/>
-                        <span/>
+                        <span />
+                        <span />
                     </>
-                }
+                )}
                 <text className={css.boxText}>{`V${regNum}: `}</text>
-                <text className={css.boxText} ref={ref}/>
+                <text className={css.boxText} ref={ref} />
             </>
-        )
-    }
+        );
+    };
 
     const { get_value } = props;
 
     useEffect(() => {
-
         const pcText = pcRef.current;
         const indexText = indexRef.current;
         const opText = opRef.current;
@@ -84,7 +81,7 @@ const ChipDiv = (props) => {
                 opText.innerHTML = `${values.opcode}`;
                 delayText.innerHTML = `0x${values.dt.toString(16)}`;
                 soundText.innerHTML = `0x${values.st.toString(16)}`;
-                siText.innerHTML = `0x${values.si.toString(16)}` ;
+                siText.innerHTML = `0x${values.si.toString(16)}`;
 
                 v0Text.innerHTML = `0x${values.registers[0x0].toString(16)}`;
                 v1Text.innerHTML = `0x${values.registers[0x1].toString(16)}`;
@@ -96,12 +93,12 @@ const ChipDiv = (props) => {
                 v7Text.innerHTML = `0x${values.registers[0x7].toString(16)}`;
                 v8Text.innerHTML = `0x${values.registers[0x8].toString(16)}`;
                 v9Text.innerHTML = `0x${values.registers[0x9].toString(16)}`;
-                vAText.innerHTML = `0x${values.registers[0xA].toString(16)}`;
-                vBText.innerHTML = `0x${values.registers[0xB].toString(16)}`;
-                vCText.innerHTML = `0x${values.registers[0xC].toString(16)}`;
-                vDText.innerHTML = `0x${values.registers[0xD].toString(16)}`;
-                vEText.innerHTML = `0x${values.registers[0xE].toString(16)}`;
-                vFText.innerHTML = `0x${values.registers[0xF].toString(16)}`;
+                vAText.innerHTML = `0x${values.registers[0xa].toString(16)}`;
+                vBText.innerHTML = `0x${values.registers[0xb].toString(16)}`;
+                vCText.innerHTML = `0x${values.registers[0xc].toString(16)}`;
+                vDText.innerHTML = `0x${values.registers[0xd].toString(16)}`;
+                vEText.innerHTML = `0x${values.registers[0xe].toString(16)}`;
+                vFText.innerHTML = `0x${values.registers[0xf].toString(16)}`;
             }
             animationFrameId = window.requestAnimationFrame(render);
         };
@@ -114,51 +111,49 @@ const ChipDiv = (props) => {
 
     return (
         <div className={css.textBox}>
+            <text className={css.boxText}>PC: </text>
+            <text className={css.boxText} ref={pcRef} />
+            {RegisterLine("0", v0, false)}
 
-                <text className={css.boxText}>PC: </text>
-                <text className={css.boxText} ref={pcRef}/>
-                {RegisterLine("0", v0, false)}
+            <text className={css.boxText}>Index: </text>
+            <text className={css.boxText} ref={indexRef} />
+            {RegisterLine("1", v1, false)}
 
-                <text className={css.boxText}>Index: </text>
-                <text className={css.boxText} ref={indexRef}/>
-                {RegisterLine("1", v1, false)}
+            <text className={css.boxText}>SI: </text>
+            <text className={css.boxText} ref={stackRef} />
+            {RegisterLine("2", v2, false)}
 
-                <text className={css.boxText}>SI: </text>
-                <text className={css.boxText} ref={stackRef}/>
-                {RegisterLine("2", v2, false)}
+            <text className={css.boxText}>DT: </text>
+            <text className={css.boxText} ref={delayRef} />
+            {RegisterLine("3", v3, false)}
 
-                <text className={css.boxText}>DT: </text>
-                <text className={css.boxText} ref={delayRef}/>
-                {RegisterLine("3", v3, false)}
+            <text className={css.boxText}>ST: </text>
+            <text className={css.boxText} ref={soundRef} />
+            {RegisterLine("4", v4, false)}
 
-                <text className={css.boxText}>ST: </text>
-                <text className={css.boxText} ref={soundRef}/>
-                {RegisterLine("4", v4, false)}
+            <text className={css.boxText}>OP: </text>
+            <span />
+            {RegisterLine("5", v5, false)}
 
-                <text className={css.boxText}>OP: </text>
-                <span/>
-                {RegisterLine("5", v5, false)}
+            <text className={css.boxText} ref={opRef} />
+            <span />
+            {RegisterLine("6", v6, false)}
 
-                <text className={css.boxText} ref={opRef}/>
-                <span/>
-                {RegisterLine("6", v6, false)}
-                
-                {RegisterLine("7", v7)}
-                {RegisterLine("8", v8)}
+            {RegisterLine("7", v7)}
+            {RegisterLine("8", v8)}
 
-                {RegisterLine("9", v9)}
-                {RegisterLine("a", vA)}
+            {RegisterLine("9", v9)}
+            {RegisterLine("a", vA)}
 
-                {RegisterLine("b", vB)}
-                {RegisterLine("c", vC)}
+            {RegisterLine("b", vB)}
+            {RegisterLine("c", vC)}
 
-                {RegisterLine("d", vD)}
-                {RegisterLine("e", vE)}
+            {RegisterLine("d", vD)}
+            {RegisterLine("e", vE)}
 
-                {RegisterLine("f", vF)}
+            {RegisterLine("f", vF)}
         </div>
     );
 };
-
 
 export default ChipDiv;
