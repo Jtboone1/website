@@ -133,9 +133,11 @@ const Chip8 = () => {
     };
 
     const resetLoad = (e) => {
-        setLoading(true);
-        chip.reset();
-        loadROM(e.target.value);
+        if (e.target.value) {
+            setLoading(true);
+            chip.reset();
+            loadROM(e.target.value);
+        }
     };
 
     const get_pixel_size = () => {
@@ -176,48 +178,50 @@ const Chip8 = () => {
                     WebAssembly.
                 </p>
                 <div className={css.centerDiv}>
-                    <select
-                        className={css.chipButton}
-                        onChange={(e) => resetLoad(e)}
-                    >
-                        <option value="">Load ROM</option>
-                        <option value="Blinky.ch8">Blinky</option>
-                        <option value="Bowling.ch8">Bowling</option>
-                        <option value="Cave.ch8">Cave</option>
-                        <option value="Connect4.ch8">Connect4</option>
-                        <option value="Pong.ch8">Pong</option>
-                        <option value="Space.ch8">Space</option>
-                        <option value="Submarine.ch8">Submarine</option>
-                        <option value="Tank.ch8">Tank</option>
-                        <option value="Tetris.ch8">Tetris</option>
-                        <option value="WipeOff.ch8">WipeOff</option>
-                        <option value="Worm.ch8">Worm</option>
-                    </select>
-                    <select
-                        className={css.chipButton}
-                        value={speed}
-                        onChange={(e) => setSpeed(e.target.value)}
-                    >
-                        <option value={0}>Speed</option>
-                        <option value={0}>x0</option>
-                        <option value={1}>x1</option>
-                        <option value={2}>x2</option>
-                        <option value={4}>x4</option>
-                        <option value={8}>x8</option>
-                        <option value={10}>x10</option>
-                    </select>
-                    <button
-                        onClick={() => setPaused(!isPaused)}
-                        className={css.chipButton}
-                    >
-                        {isPaused ? "Start" : "Stop"}
-                    </button>
-                    <button
-                        className={css.chipButton}
-                        onClick={() => setClicked(true)}
-                    >
-                        Step
-                    </button>
+                    <div className={css.buttonFlex}>
+                        <select
+                            className={css.chipButton}
+                            onChange={(e) => resetLoad(e)}
+                        >
+                            <option value="">Load ROM</option>
+                            <option value="Blinky.ch8">Blinky</option>
+                            <option value="Bowling.ch8">Bowling</option>
+                            <option value="Cave.ch8">Cave</option>
+                            <option value="Connect4.ch8">Connect4</option>
+                            <option value="Pong.ch8">Pong</option>
+                            <option value="Space.ch8">Space</option>
+                            <option value="Submarine.ch8">Submarine</option>
+                            <option value="Tank.ch8">Tank</option>
+                            <option value="Tetris.ch8">Tetris</option>
+                            <option value="WipeOff.ch8">WipeOff</option>
+                            <option value="Worm.ch8">Worm</option>
+                        </select>
+                        <select
+                            className={css.chipButton}
+                            value={speed}
+                            onChange={(e) => setSpeed(e.target.value)}
+                        >
+                            <option value={0}>Speed</option>
+                            <option value={0}>x0</option>
+                            <option value={1}>x1</option>
+                            <option value={2}>x2</option>
+                            <option value={4}>x4</option>
+                            <option value={8}>x8</option>
+                            <option value={10}>x10</option>
+                        </select>
+                        <button
+                            onClick={() => setPaused(!isPaused)}
+                            className={css.chipButton}
+                        >
+                            {isPaused ? "Start" : "Stop"}
+                        </button>
+                        <button
+                            className={css.chipButton}
+                            onClick={() => setClicked(true)}
+                        >
+                            Step
+                        </button>
+                    </div>
                 </div>
                 <div className={css.canvasDiv}>
                     <Canvas
@@ -232,14 +236,15 @@ const Chip8 = () => {
                     <ChipDiv get_value={get_chip_values}/>
                 </div>
                 <br />
+                <hr className={css.line} />
                 <p className={css.instructionTitle}>
-                    Chip8 Keypad - Mapped Keypad
+                    Controls
                 </p>
                 <hr className={css.line} />
-                <p className={css.instructionLine}>1 2 3 C - 1 2 3 4</p>
-                <p className={css.instructionLine}>4 5 6 D - Q W E R</p>
-                <p className={css.instructionLine}>7 8 9 E - A S D F</p>
-                <p className={css.instructionLine}>A 0 B F - Z X C V</p>
+                <p className={css.instructionLine}>1 2 3 4</p>
+                <p className={css.instructionLine}>Q W E R</p>
+                <p className={css.instructionLine}>A S D F</p>
+                <p className={css.instructionLine}>Z X C V</p>
                 <hr className={css.line} />
                 <p className={css.pTitle}>What is this?</p>
                 <p className={css.pText}>

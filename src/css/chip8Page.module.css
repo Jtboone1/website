@@ -2,7 +2,7 @@
     background-color: black;
     padding-top: 5%;
     margin: auto;
-    height: 130%;
+    height: 120%;
     padding-bottom: 30%;
     font-family: "Press Start 2P";
     --retro-primary: #70ff70;
@@ -30,7 +30,7 @@
 .pTitle {
     color: var(--retro-primary);
     text-align: center;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 20px;
     font-family: "Roboto";
     font-size: 22px;
@@ -39,7 +39,6 @@
 .textBox {
     display: grid;
     row-gap: 15px;
-    margin-bottom: 50px;
 }
 
 .boxText {
@@ -55,7 +54,6 @@
 .instructionTitle {
     color: var(--retro-primary);
     text-align: center;
-    margin-left: 14px;
 }
 
 .centerDiv {
@@ -76,7 +74,6 @@
 .canvasDiv {
     display: flex;
     justify-content: center;
-    margin-left: 15px;
 }
 
 .chipButton {
@@ -115,10 +112,7 @@
 
     .textBox {
         grid-template-columns: 125px 170px 80px 170px;
-    }
-
-    .boxText {
-        margin-left: 40%;
+        margin-left: 110px;
     }
 }
 
@@ -142,8 +136,8 @@
     }
 
     .textBox {
-        margin-left: 10%;
-        grid-template-columns: 100px 140px 60px 140px;
+        grid-template-columns: 105px 140px 60px 140px;
+        margin-left: 80px;
     }
 
     .boxText {
@@ -152,6 +146,13 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .buttonFlex {
+        margin-top: -15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .centerDiv {
         margin: 20px 0 20px 0;
     }
@@ -159,19 +160,16 @@
     .chipButton {
         height: 30px;
         width: 120px;
+        margin-bottom: 10px;
         font-size: 10px;
     }
 
-    .instructionTitle {
-        display: none;
-    }
-
     .boxText {
-        margin-left: 15px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .textBox {
         grid-template-columns: 90px 100px 50px 100px;
+        margin-left: 60px;
     }
 }
