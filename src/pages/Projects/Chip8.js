@@ -7,6 +7,7 @@ import ChipDiv from "../../components/ChipDiv";
 import { handleKeyDown, handleKeyUp } from "../../components/KeyHandler";
 import { extract_opcode_name } from "../../components/OpcodeExtractor";
 import { useMediaQuery } from "react-responsive";
+import { Helmet } from "react-helmet";
 
 import * as css from "../../css/chip8Page.module.css";
 
