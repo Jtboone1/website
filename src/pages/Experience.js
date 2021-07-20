@@ -44,7 +44,7 @@ const Experience = () => {
                             <br />
                             <ul>
                                 <li>
-                                    Helped integrate a new manafacturing line in
+                                    Helped integrate a new manufacturing line in
                                     the Philippines
                                 </li>
                                 <li>

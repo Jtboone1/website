@@ -178,10 +178,7 @@ const Chip8 = () => {
                     content="A Chip8 Emulator, written in Rust and Compiled to WebAssembly"
                 />
                 <meta name="author" content="Jarrod Boone" />
-                <meta
-                    name="keywords"
-                    content="Rust, Opcodes, NES, emulator"
-                />
+                <meta name="keywords" content="Rust, Opcodes, NES, emulator" />
                 <meta name="viewport" content="width=device-width" />
                 <meta name="language" content="en" />
             </Helmet>

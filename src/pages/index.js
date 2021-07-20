@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useContext, useRef, useEffect } from "react";
-import StyleContext from "../components/Context";
 
 import * as Main from "../css/mainPage.module.css";
 
+import StyleContext from "../components/Context";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
+import resume from "./Resume.pdf";
 
 export default function Index() {
     const style = useRef(useContext(StyleContext));
@@ -54,13 +55,20 @@ export default function Index() {
                     software in Ottawa.
                 </p>
                 <p className={Main.desc}>
-                    I love problem solving and getting to work on projects that
+                    I love problem-solving and getting to work on projects that
                     can influence a large number of people. I also love learning
-                    about newer technologies, and trying to apply what I've
-                    learned into my own projects. The idea behind this website
-                    is to serve as an online resumé that will hopefully be a bit
-                    more interesting to look at than a black and white sheet of
+                    about newer technologies and trying to apply what I've
+                    learned to my projects. The idea behind this website is to
+                    serve as an online resumé that will hopefully be a bit more
+                    interesting to look at than a black and white sheet of
                     paper!
+                </p>
+                <p className={Main.desc}>
+                    My actual resume can be found{" "}
+                    <a href={resume} className={Main.mainLink}>
+                        here
+                    </a>
+                    .
                 </p>
                 <br />
                 <hr />
