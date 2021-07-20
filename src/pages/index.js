@@ -58,9 +58,9 @@ export default function Index() {
                     I love problem-solving and getting to work on projects that
                     can influence a large number of people. I also love learning
                     about newer technologies and trying to apply what I've
-                    learned to my projects. The idea behind this website is to
-                    serve as an online resumé that will hopefully be a bit more
-                    interesting to look at than a black and white sheet of
+                    learned to my own projects. The idea behind this website is
+                    to serve as an online resumé that will hopefully be a bit
+                    more interesting to look at than a black and white sheet of
                     paper!
                 </p>
                 <p className={Main.desc}>
