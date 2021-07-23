@@ -195,15 +195,23 @@ const Chip8 = () => {
                             onChange={(e) => resetLoad(e)}
                         >
                             <option value="">Load ROM</option>
+                            <option value="Astro.ch8">Astro</option>
                             <option value="Blinky.ch8">Blinky</option>
                             <option value="Bowling.ch8">Bowling</option>
                             <option value="Cave.ch8">Cave</option>
                             <option value="Connect4.ch8">Connect4</option>
+                            <option value="Landing.ch8">Landing</option>
                             <option value="Pong.ch8">Pong</option>
+                            <option value="Puzzle.ch8">Puzzle</option>
+                            <option value="Rocket.ch8">Rocket</option>
+                            <option value="Slide.ch8">Slide</option>
+                            <option value="Soccer.ch8">Soccer</option>
                             <option value="Space.ch8">Space</option>
                             <option value="Submarine.ch8">Submarine</option>
                             <option value="Tank.ch8">Tank</option>
                             <option value="Tetris.ch8">Tetris</option>
+                            <option value="Timebomb.ch8">Timebomb</option>
+                            <option value="Tron.ch8">Tron</option>
                             <option value="WipeOff.ch8">WipeOff</option>
                             <option value="Worm.ch8">Worm</option>
                         </select>

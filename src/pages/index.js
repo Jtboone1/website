@@ -64,7 +64,7 @@ export default function Index() {
                     paper!
                 </p>
                 <p className={Main.desc}>
-                    My actual resume can be found{" "}
+                    My resumé can be found{" "}
                     <a href={resume} className={Main.mainLink}>
                         here
                     </a>
