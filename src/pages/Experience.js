@@ -21,9 +21,9 @@ const Experience = () => {
                 <meta charSet="utf-8" />
                 <meta
                     name="description"
-                    content="Personal Website for Jarrod Boone. This page just describes things like work experience, skills and extra-curricular activites"
+                    content="Personal Website for Jarrod Boone. This page just describes things like work experience, skills and extra-curricular activities"
                 />
-                <meta name="auther" content="Jarrod Boone" />
+                <meta name="author" content="Jarrod Boone" />
                 <meta
                     name="keywords"
                     content="Rust, HTML, CSS, Portfolio, Website, JavaScript, Student"
@@ -44,16 +44,15 @@ const Experience = () => {
                             <br />
                             <ul>
                                 <li>
-                                    Helped integrate a new manufacturing line in
-                                    the Philippines
+                                    Worked closely with senior engineers to develop the back-end 
+                                    infrastructure for a new manufacturing line in the Philippines.
                                 </li>
                                 <li>
-                                    Worked to improve CI/CD technologies within
-                                    the software team
+                                    Reduced the amount of bugs in the React Native application used by
+                                    all products.
                                 </li>
                                 <li>
-                                    Worked on bugfixing the React Native app
-                                    used by all products
+                                    Used CI/CD technologies in order to improve developer experience.
                                 </li>
                             </ul>
 
@@ -67,16 +66,16 @@ const Experience = () => {
                                 <li>
                                     Created front end components using React to
                                     enhance both desktop and mobile user
-                                    experience
+                                    experience.
                                 </li>
                                 <li>
                                     Built reusable code in order to optimize web
-                                    page development
+                                    page development.
                                 </li>
                                 <li>
                                     Troubleshot interface software and debugged
                                     application code to improve functionality
-                                    and performance
+                                    and performance.
                                 </li>
                             </ul>
 
@@ -89,11 +88,11 @@ const Experience = () => {
                             <ul>
                                 <li>
                                     Performed troubleshooting tasks for various
-                                    networking software
+                                    networking software.
                                 </li>
                                 <li>
                                     Completed the majority of tickets within the
-                                    quarter of that year
+                                    quarter of that year.
                                 </li>
                             </ul>
 
@@ -106,11 +105,11 @@ const Experience = () => {
                             <ul>
                                 <li>
                                     Worked on migrating the OS of every computer
-                                    in the university to Windows 10
+                                    in the university to Windows 10.
                                 </li>
                                 <li>
                                     Helped various faculty members in computer
-                                    hardware installations
+                                    hardware installations.
                                 </li>
                             </ul>
                         </div>
@@ -125,28 +124,25 @@ const Experience = () => {
                         <div className={Edu.desc}>
                             <ul>
                                 <li>
-                                    Computer skills include, JavaScript, React,
-                                    Rust, Git, C++, HTML, CSS, Python, Microsoft
-                                    Office (Word, PowerPoint, Excel)
+                                    Programming languages include JavaScript, C++, Rust, Python, C#.
                                 </li>
                                 <li>
-                                    Exceptional listener and communicator (both
-                                    verbally and in writing)
+                                    Web technologies include React, React Native, HTML/CSS, Node, Express, TypeScript, Gatsby.
                                 </li>
                                 <li>
-                                    Experienced in giving instructions to others
+                                    Other technologies include Git, Linux, VIM, Docker, CI/CD, AWS, MongoDB, Jira. 
                                 </li>
                                 <li>
                                     Experienced in troubleshooting software
-                                    issues
+                                    issues.
                                 </li>
                                 <li>
                                     Possess a good understanding on how to
                                     develop and understand solutions, concepts
-                                    and ideas
+                                    and ideas.
                                 </li>
-                                <li>First aid certified</li>
-                                <li>Valid driver's license</li>
+                                <li>First aid certified.</li>
+                                <li>Valid driver's license.</li>
                             </ul>
                         </div>
                     </div>
@@ -201,7 +197,8 @@ const Experience = () => {
                             >
                                 Gatsby
                             </a>{" "}
-                            framework. Hosted with Github Pages.
+                            framework. Built with SEO techniques in mind to increase user traffic. 
+                            Uses Github Actions for automatic deployment. Hosted with Github Pages.
                         </div>
                     </div>
                 </div>
