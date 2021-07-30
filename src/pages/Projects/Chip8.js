@@ -27,6 +27,7 @@ const Chip8 = () => {
     const [loading, setLoading] = useState(true);
     const [isPaused, setPaused] = useState(true);
     const [clicked, setClicked] = useState(false);
+    const [showScreen, setScreen] = useState(false);
 
     const large_screen = useMediaQuery({ query: "(min-width: 1200px)" });
     const medium_screen = useMediaQuery({ query: "(min-width: 500px)" });
@@ -163,6 +164,9 @@ const Chip8 = () => {
     useEffect(() => {
         loadWASM();
         style.current.setStyle(true);
+        setTimeout(() => {
+            setScreen(true);
+        }, 500)
     }, []);
 
     useEffect(() => {
@@ -242,13 +246,15 @@ const Chip8 = () => {
                     </div>
                 </div>
                 <div className={css.canvasDiv}>
+                    {showScreen && 
                     <Canvas
                         draw={loading ? draw_nothing : draw}
                         pixel_size={get_pixel_size()}
                         width={get_pixel_size() * 64}
                         height={get_pixel_size() * 32}
                         borderStyle={css.canvasBorder}
-                    />{" "}
+                    />
+                    }
                 </div>
                 <div className={css.centerDiv}>
                     <ChipDiv get_value={get_chip_values} />
