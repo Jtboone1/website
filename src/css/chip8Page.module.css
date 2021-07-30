@@ -97,23 +97,32 @@
     height: 1px;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 500px) {
+    .buttonFlex {
+        margin-top: -15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
     .centerDiv {
-        margin: 20px 21vw 20px 21vw;
+        margin: 20px 0 20px 0;
     }
 
-    .pText {
-        margin-left: 22vw;
-        margin-right: 22vw;
+    .chipButton {
+        height: 30px;
+        width: 120px;
+        margin-bottom: 10px;
+        font-size: 10px;
     }
 
-    .cssMain {
-        margin-left: 5rem;
+    .boxText {
+        font-size: 13px;
     }
 
     .textBox {
-        grid-template-columns: 125px 170px 80px 170px;
-        margin-left: 110px;
+        grid-template-columns: 90px 100px 50px 100px;
+        margin-left: 60px;
     }
 }
 
@@ -146,31 +155,22 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .buttonFlex {
-        margin-top: -15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-
+@media only screen and (min-width: 1200px) {
     .centerDiv {
-        margin: 20px 0 20px 0;
+        margin: 20px 21vw 20px 21vw;
     }
 
-    .chipButton {
-        height: 30px;
-        width: 120px;
-        margin-bottom: 10px;
-        font-size: 10px;
+    .pText {
+        margin-left: 22vw;
+        margin-right: 22vw;
     }
 
-    .boxText {
-        font-size: 13px;
+    .cssMain {
+        margin-left: 5rem;
     }
 
     .textBox {
-        grid-template-columns: 90px 100px 50px 100px;
-        margin-left: 60px;
+        grid-template-columns: 125px 170px 80px 170px;
+        margin-left: 110px;
     }
 }
