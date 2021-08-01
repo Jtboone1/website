@@ -166,7 +166,7 @@ const Chip8 = () => {
         style.current.setStyle(true);
         setTimeout(() => {
             setScreen(true);
-        }, 500)
+        }, 100)
     }, []);
 
     useEffect(() => {

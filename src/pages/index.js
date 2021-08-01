@@ -6,10 +6,15 @@ import * as Main from "../css/mainPage.module.css";
 import StyleContext from "../components/Context";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
-import resume from "./Resume.pdf";
+import { Document, Page, pdfjs } from "react-pdf";
+import { useMediaQuery } from "react-responsive";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function Index() {
     const style = useRef(useContext(StyleContext));
+    const medium_screen = useMediaQuery({ query: "(max-width: 800px)" });
+    const small_screen = useMediaQuery({ query: "(max-width: 650px)" });
+    const very_small_screen = useMediaQuery({ query: "(max-width: 570px" })
 
     useEffect(() => {
         style.current.setStyle(false);
@@ -65,13 +70,24 @@ export default function Index() {
                 </p>
                 <p className={Main.desc}>
                     My resumé can be found{" "}
-                    <a href={resume} className={Main.mainLink}>
+                    <a 
+                        className={Main.mainLink} 
+                        href="./Resume.pdf"
+                    >
                         here
-                    </a>
-                    .
+                    </a>.
                 </p>
                 <br />
-                <hr />
+                    {very_small_screen && <hr/>}
+                    <Document 
+                        file="./Resume.pdf" 
+                        className={Main.pdfBorder}
+                    >
+                        <Page 
+                            pageNumber={1}
+                            scale={very_small_screen ? 0.6 : small_screen ? 0.9 : medium_screen ? 1.05 : 1.25}
+                        />
+                    </Document>                        
             </main>
         </>
     );

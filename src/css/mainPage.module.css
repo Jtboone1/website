@@ -11,6 +11,19 @@ h2.desc {
     justify-content: center;
 }
 
+.pdfBorder {
+    display: flex;
+    justify-content: center;
+}
+
+.pdfBorder canvas {
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #23232e;
+    border-width: 1px;
+}
+
 .image {
     margin-top: 3%;
     width: 10rem;
@@ -30,10 +43,21 @@ h2.desc {
     color: black;
 }
 
+@media only screen and (max-width: 650px) {
+    .pdfBorder canvas {
+        border-style: none;
+        margin-top: 0;
+    }
+
+    .pdfBorder {
+        width: 100%;
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     .desc {
-        margin-left: 25vw;
-        margin-right: 25vw;
+        margin-left: 18vw;
+        margin-right: 18vw;
     }
 
     h2 {
