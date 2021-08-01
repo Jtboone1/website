@@ -175,6 +175,23 @@ const Experience = () => {
                         </div>
                     </div>
                     <div className={Edu.paraContent}>
+                        <div className={Edu.descProject}>
+                            <b>Calendar Scheduler</b>
+                            <div className={Edu.divPro}>
+                                <a
+                                    href="https://github.com/Jtboone1/calender_app"
+                                    className={Edu.link}
+                                >
+                                    <FaLink className={Edu.linkIcon} />
+                                    https://github.com/Jtboone1/calendar_app
+                                </a>
+                            </div>
+                            Desktop application to help students keep track of their day to day tasks. 
+                            Uses Twilio and NodeMailer for mobile and email notifications. 
+                            Back-end created using Express to handle multiple users.
+                        </div>
+                    </div>
+                    <div className={Edu.paraContent}>
                         <div className={Edu.descProjectLast}>
                             <b>This Website</b>
                             <div className={Edu.divPro}>
