@@ -187,8 +187,20 @@ const Experience = () => {
                                 </a>
                             </div>
                             Desktop application to help students keep track of their day to day tasks. 
-                            Uses Twilio and NodeMailer for mobile and email notifications. 
-                            Back-end created using Express to handle multiple users.
+                            Uses{" "}
+                            <a className={Edu.link} href="https://www.twilio.com/">
+                                Twilio
+                            </a>{" "}
+                            and{" "}
+                            <a className={Edu.link} href="https://nodemailer.com/about/">
+                                NodeMailer
+                            </a>{" "}
+                            for mobile and email notifications. 
+                            Back-end created using{" "}
+                            <a className={Edu.link} href="https://expressjs.com/">
+                                Express
+                            </a>{" "}
+                            to handle multiple users.
                         </div>
                     </div>
                     <div className={Edu.paraContent}>
