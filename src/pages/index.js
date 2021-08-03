@@ -6,15 +6,22 @@ import * as Main from "../css/mainPage.module.css";
 import StyleContext from "../components/Context";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
-import { Document, Page, pdfjs } from "react-pdf";
 import { useMediaQuery } from "react-responsive";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function Index() {
+    const large_screen = useMediaQuery({ query: "(min-width: 900px)" });
+    const medium_screen = useMediaQuery({ query: "(max-width: 900px) and (min-width: 700px)" });
+    const small_screen = useMediaQuery({ query: "(max-width: 700px) and (min-width: 550px)" });
     const style = useRef(useContext(StyleContext));
-    const medium_screen = useMediaQuery({ query: "(max-width: 800px)" });
-    const small_screen = useMediaQuery({ query: "(max-width: 650px)" });
-    const very_small_screen = useMediaQuery({ query: "(max-width: 570px" })
+
+    const getResumeWidth = () => {
+        const width = 
+        large_screen ? 700 : 
+        medium_screen ? 600 :
+        small_screen ? 500 : 
+        300;
+        return width;
+    }
 
     useEffect(() => {
         style.current.setStyle(false);
@@ -28,7 +35,7 @@ export default function Index() {
                     name="description"
                     content="Personal Website for Jarrod Boone. This page just describes the idea behind why this website exists."
                 />
-                <meta name="auther" content="Jarrod Boone" />
+                <meta name="author" content="Jarrod Boone" />
                 <meta
                     name="keywords"
                     content="projects, Jarrod, Boone, website, student"
@@ -77,17 +84,13 @@ export default function Index() {
                         here
                     </a>.
                 </p>
-                <br />
-                    {very_small_screen && <hr/>}
-                    <Document 
-                        file="./Resume.pdf" 
-                        className={Main.pdfBorder}
-                    >
-                        <Page 
-                            pageNumber={1}
-                            scale={very_small_screen ? 0.6 : small_screen ? 0.9 : medium_screen ? 1.05 : 1.25}
-                        />
-                    </Document>                        
+                <div className={Main.pdfBorder}>
+                    <img 
+                        src="./Resume.png" 
+                        width={getResumeWidth()} 
+                        className={Main.pdfBorderStyle}
+                    />
+                </div>
             </main>
         </>
     );

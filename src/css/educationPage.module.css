@@ -3,12 +3,14 @@
 }
 
 .descProject {
+    margin-top: 25px;
     line-height: 25px;
-    margin-bottom: 25px;
 }
 
 .descProjectLast {
     line-height: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .header {
