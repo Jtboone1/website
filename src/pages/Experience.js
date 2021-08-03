@@ -151,7 +151,6 @@ const Experience = () => {
                 <div className={Edu.container}>
                     <div className={Edu.paraName}>
                         <b className={Edu.header}>Projects</b>
-                        <br />
                     </div>
                     <div className={Edu.paraContent}>
                         <div className={Edu.descProject}>
