@@ -89,6 +89,7 @@ export default function Index() {
                         src="./Resume.png" 
                         width={getResumeWidth()} 
                         className={Main.pdfBorderStyle}
+                        alt="resume"
                     />
                 </div>
             </main>
