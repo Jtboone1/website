@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "boone8": "^0.2.0",
+        "canvas": "^2.8.0",
         "gatsby": "^3.6.2",
         "gatsby-plugin-image": "^1.8.0",
         "gatsby-plugin-layout": "^2.8.0",
@@ -24,6 +25,7 @@
         "gatsby-plugin-sharp": "^3.8.0",
         "gatsby-plugin-web-font-loader": "^1.0.4",
         "gatsby-source-filesystem": "^3.8.0",
+        "pdfjs-dist": "^2.6.347",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
