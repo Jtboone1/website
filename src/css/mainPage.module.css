@@ -19,15 +19,16 @@ h2.desc {
 .pdfBorder  {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 200px;
+    margin-top: 50px;
 }
 
 .pdfBorderStyle {
     border-style: solid;
-    border-radius: 10px;
     border-color: #23232e;
+    border-radius: 10px;
+    overflow: hidden;
     border-width: 1px;
+    margin-bottom: 200px;
 }
 
 .image {

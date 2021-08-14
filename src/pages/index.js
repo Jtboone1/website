@@ -7,19 +7,28 @@ import StyleContext from "../components/Context";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
+import { Document, Page, pdfjs } from 'react-pdf';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function Index() {
-    const large_screen = useMediaQuery({ query: "(min-width: 900px)" });
-    const medium_screen = useMediaQuery({ query: "(max-width: 900px) and (min-width: 700px)" });
-    const small_screen = useMediaQuery({ query: "(max-width: 700px) and (min-width: 550px)" });
+
+    const very_large_screen = useMediaQuery({ query: "(min-width: 1500px)" });
+    const large_screen = useMediaQuery({ query: "(max-width: 1500px) and (min-width: 900px)" });
+    const medium_screen = useMediaQuery({ query: "(max-width: 900px) and (min-width: 800px)" });
+    const small_screen = useMediaQuery({ query: "(max-width: 800px) and (min-width: 630px)" });
+    const very_small_screen = useMediaQuery({ query: "(max-width: 630px) and (min-width: 370px)" });
     const style = useRef(useContext(StyleContext));
 
     const getResumeWidth = () => {
         const width = 
-        large_screen ? 700 : 
-        medium_screen ? 600 :
-        small_screen ? 500 : 
-        300;
+        very_large_screen ? 830 :
+        large_screen ? 750 : 
+        medium_screen ? 700 :
+        small_screen ? 580 : 
+        very_small_screen ? 360 :
+        265;
+
         return width;
     }
 
@@ -84,13 +93,18 @@ export default function Index() {
                         here
                     </a>.
                 </p>
-                <div className={Main.pdfBorder}>
-                    <img 
-                        src="./Resume.png" 
-                        width={getResumeWidth()} 
-                        className={Main.pdfBorderStyle}
-                        alt="resume"
-                    />
+                <div>
+                    <Document 
+                        file="Resume.pdf" 
+                        className={Main.pdfBorder}
+                    >
+                        <Page 
+                            pageNumber={1}
+                            width={getResumeWidth()} 
+                            className={Main.pdfBorderStyle}
+                            renderAnnotationLayer={false}
+                        />
+                    </Document>
                 </div>
             </main>
         </>
