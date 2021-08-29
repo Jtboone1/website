@@ -70,7 +70,7 @@ export default function Index() {
                         className={Main.mainLink}
                         href="https://getmysa.com/?country=CA"
                     >
-                        Mysa Thermostats
+                        Mysa Smart Thermostats
                     </a>
                     . Before that, I had the opportunity to work on Nokia's SAM
                     software in Ottawa.

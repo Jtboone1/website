@@ -28,6 +28,7 @@ b {
 .eduMain {
     padding-top: 4%;
     margin: auto;
+    margin-bottom: 100px;
 }
 
 .link {
@@ -112,5 +113,11 @@ b {
 
     .header {
         text-decoration: underline;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .eduMain {
+        margin-top: 50px;
     }
 }

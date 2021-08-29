@@ -38,7 +38,7 @@ const Experience = () => {
                     </div>
                     <div className={Edu.paraContent}>
                         <div className={Edu.desc}>
-                            <b>Mysa Thermostats, St John's NL</b>
+                            <b>Mysa Smart Thermostats, St John's NL</b>
                             <br />
                             <b className={Edu.rightTxt}>May 2021 - Present</b>
                             <br />
@@ -86,6 +86,10 @@ const Experience = () => {
                             </b>
                             <br />
                             <ul>
+                                <li>
+                                    Automated the workflow for setting up virtual 
+                                    machines using Python, decreasing setup time by 10%.
+                                </li>
                                 <li>
                                     Performed troubleshooting tasks for various
                                     networking software.
