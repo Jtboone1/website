@@ -64,15 +64,17 @@ export default function Index() {
                 <p className={Main.desc}>
                     Hello! I am currently a term 6 Computer Engineering student
                     at Memorial University of Newfoundland, where I am expecting
-                    to graduate in April of 2023. I'm currently completing my
-                    fourth work term as a software engineering student at{" "}
+                    to graduate in April of 2023. 
+
+                    During my last internship, I had the opportunity to work at{" "}
                     <a
                         className={Main.mainLink}
                         href="https://getmysa.com/?country=CA"
                     >
                         Mysa Smart Thermostats
                     </a>
-                    . Before that, I had the opportunity to work on Nokia's SAM
+                    {" "}as a full-stack developer for the companies DevOps team.
+                    Before that, I had the opportunity to work on Nokia's SAM
                     software in Ottawa.
                 </p>
                 <p className={Main.desc}>
