@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: touch .env.production
-      - run: echo OPENAI_TOKEN=${{ secrets.GATSBY_OPENAI_TOKEN }} >> .env.production
+      - run: echo GATSBY_OPENAI_TOKEN=${{ secrets.GATSBY_OPENAI_TOKEN }} >> .env.production
       - run: npm ci
       - run: npm run build
       - run: cp -avr ./roms ./public
