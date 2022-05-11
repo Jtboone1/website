@@ -1,0 +1,113 @@
+.desc {
+    line-height: 35px;
+}
+
+.descProject {
+    margin-top: 25px;
+    line-height: 25px;
+}
+
+.descProjectLast {
+    line-height: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.header {
+    display: block;
+    width: 400px;
+}
+
+.clientInput {
+    display: block;
+    width: 400px;
+}
+
+
+.response {
+    display: block;
+    margin-top: 30px;
+    width: 400px;
+}
+
+.textbox {
+    display: block;
+    width: 500px;
+    height: 200px;
+    resize: none;
+}
+
+b {
+    font-size: 16.5px;
+}
+
+.shopMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4%;
+    margin-left: 40%;
+    margin-right: 50%;
+    margin-bottom: 100px;
+}
+
+.shopMain div {
+    margin-top: 10px;
+}
+
+.container {
+    margin: auto;
+}
+
+.prompt {
+    width: 495px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #e7e7e7;
+    white-space: pre-wrap;
+}
+
+.submitButton {
+    width: 100px;
+    height: 45px;
+    color: white;
+    background-color: #058800;
+    border: none;
+}
+
+.submitButton:hover {
+    background-color: #036400;
+}
+
+.submitButton:active {
+    background-color: #035c00;
+}
+
+.rightTxt {
+    color: #555555;
+}
+
+@media only screen and (min-width: 1200px) {
+    .line {
+        margin-left: 20vw;
+        margin-right: 15vw;
+    }
+
+    .desc {
+        margin-left: 17vw;
+        margin-right: 17vw;
+    }
+
+    .paraName {
+        width: 15%;
+        padding-top: 7px;
+    }
+
+    .rightTxt {
+        float: right;
+        text-align: right;
+    }
+
+}

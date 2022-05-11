@@ -16,6 +16,7 @@
         "deploy": "gatsby build --prefix-paths && gh-pages -d public"
     },
     "dependencies": {
+        "axios": "^0.21.1",
         "boone8": "^0.2.0",
         "canvas": "^2.8.0",
         "gatsby": "^3.6.2",
