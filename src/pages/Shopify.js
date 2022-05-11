@@ -28,13 +28,12 @@ const Experience = () => {
             presence_penalty: 0.0,
         };
 
-
         const response = await axios({
             url: "https://api.openai.com/v1/engines/text-curie-001/completions",
             method: "post",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer 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",
+                Authorization: `Bearer ${process.env.GATSBY_OPENAI_TOKEN}`,
             },
             data: JSON.stringify(data)
         })
@@ -52,7 +51,6 @@ const Experience = () => {
             </div>,
             ...list
         ]);
-        console.log(promptList)
     };
 
     return (
